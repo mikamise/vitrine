@@ -1,7 +1,7 @@
-# Configuration sensible (clés API)
+# Fichier de configuration sensible (clés API)
 config.js
 
-# Système
+# Fichiers système
 .DS_Store
 Thumbs.db
 *.log
@@ -12,5 +12,5 @@ Thumbs.db
 *.swp
 *.swo
 
-# Dépendances
+# Dossiers de dépendances
 node_modules/
