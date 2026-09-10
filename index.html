@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UJLoG Étudiants L'espace numérique du Département de Géographie</title>
+  <meta name="description"
+    content="UJLoG Étudiants : plateforme numérique du Département de Géographie de l'UJLoG. Cours, TD, examens, ressources et informations académiques, de la L1 au M2.">
+  <meta name="theme-color" content="#0b2444">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UJLoG Étudiants — Plateforme du Département de Géographie">
+  <meta property="og:description"
+    content="Cours, TD, examens, ressources et informations académiques pour les étudiants de la L1 au M2.">
+  <meta property="og:image" content="assets/logo-ujlog.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Supabase SDK (CDN officiel) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="site-header">
+    <nav class="nav wrap" aria-label="Navigation principale">
+      <a href="#accueil" class="brand" aria-label="Retour à l'accueil">
+        <img src="assets/logo-ujlog.png" alt="Université Jean Lorougnon Guédé" class="logo-img logo-ujlog-img">
+        <img src="assets/logo-geographie.jpg" alt="Département de Géographie UJLoG" class="logo-img logo-geo-img">
+        <span class="brand-text">
+          <strong>UJLoG Étudiants</strong>
+          <small>Département de Géographie · Daloa</small>
+        </span>
+      </a>
+
+      <ul class="links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+        <li><a href="#parcours">Parcours LMD</a></li>
+        <li><a href="#ressources">Ressources</a></li>
+        <li><a href="#telecharger">Télécharger</a></li>
+      </ul>
+
+      <a href="#telecharger" class="nav-cta">
+        <i class="fas fa-arrow-right-to-bracket"></i> Accéder
+      </a>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-panel" id="mobile-panel">
+      <a href="#accueil">Accueil</a>
+      <a href="#presentation">Présentation</a>
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#parcours">Parcours LMD</a>
+      <a href="#ressources">Ressources</a>
+      <a href="#telecharger">Télécharger</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="accueil" class="hero">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <span class="badge-pill reveal"><i class="fas fa-circle-check"></i> Version 1.0 Disponible</span>
+
+        <h1 class="reveal">
+          UJLoG <span>ÉTUDIANTS</span><br>
+          <small>L'espace numérique des étudiants du Département de Géographie.</small>
+        </h1>
+
+        <p class="lead reveal">
+          Cours, TD, examens, ressources pédagogiques et informations académiques.
+          Centralisés, organisés par niveau et par filière, accessibles partout.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#telecharger" class="btn btn-orange">
+            <i class="fas fa-arrow-right-to-bracket"></i> Accéder à l'application
+          </a>
+          <a href="#telecharger" class="btn btn-outline-light">
+            <i class="fas fa-download"></i> Télécharger
+          </a>
+        </div>
+
+        <div class="stat-row reveal">
+          <div class="stat"><strong data-count="5">0</strong><span>Niveaux · L1 → M2</span></div>
+          <div class="stat"><strong data-count="3">0</strong><span>Filières dès la L3</span></div>
+          <div class="stat"><strong data-count="100" data-suffix="%">0</strong><span>Contenu organisé</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="mini-phone mini-phone--lg">
+          <div class="mini-screen">
+            <div class="row-line"><span class="dot dot--navy"></span><span class="line" style="max-width:70%"></span>
+            </div>
+            <div class="row-line"><span class="dot dot--orange"></span><span class="line" style="max-width:90%"></span>
+            </div>
+            <div class="row-line"><span class="dot dot--green"></span><span class="line" style="max-width:55%"></span>
+            </div>
+            <div class="row-line"><span class="dot dot--navy"></span><span class="line" style="max-width:80%"></span>
+            </div>
+            <div class="row-line"><span class="dot dot--orange"></span><span class="line" style="max-width:65%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BANNIÈRE INFO ==================== -->
+    <section class="wrap" aria-label="Information">
+      <div class="info-banner reveal">
+        <div class="info-banner-icon"><i class="fas fa-sync-alt"></i></div>
+        <div>
+          <div class="info-banner-label">Contenu mis à jour régulièrement</div>
+          <div class="info-banner-value">Les ressources sont ajoutées et maintenues par les délégués de section.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRÉSENTATION ==================== -->
+    <section id="presentation" class="section-tint">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Présentation</span>
+          <h2>Qu'est-ce que UJLoG Étudiants ?</h2>
+          <p>Une plateforme unique pensée pour les étudiants du Département de Géographie, de la Licence 1 au Master 2.
+          </p>
+        </header>
+
+        <div class="pillars">
+          <article class="pillar reveal">
+            <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+            <h3>Centraliser</h3>
+            <p>Cours, TD, examens, ressources et informations académiques réunis dans un seul espace, classés par
+              niveau, filière et semestre.</p>
+          </article>
+
+          <article class="pillar reveal">
+            <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Simplifier</h3>
+            <p>Un accès rapide aux documents utiles, sans dispersion entre les groupes de messagerie et les dossiers
+              partagés.</p>
+          </article>
+
+          <article class="pillar reveal">
+            <div class="pillar-icon"><i class="fas fa-bullhorn"></i></div>
+            <h3>Informer</h3>
+            <p>Les informations académiques importantes sont regroupées et consultables au même endroit, par tous les
+              étudiants.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FONCTIONNALITÉS ==================== -->
+    <section id="fonctionnalites">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Fonctionnalités</span>
+          <h2>Ce que la plateforme vous apporte</h2>
+          <p>Un ensemble d'outils conçus autour des besoins réels des étudiants.</p>
+        </header>
+
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Cours &amp; TD</h3>
+            <p>Supports pédagogiques classés par matière, niveau et semestre.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-file-lines"></i></div>
+            <h3>Sujets d'examens</h3>
+            <p>Sessions normales et rattrapages, archivés par année et par matière.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Résultats</h3>
+            <p>Publication des résultats dès leur mise à disposition, par niveau.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-magnifying-glass"></i></div>
+            <h3>Recherche instantanée</h3>
+            <p>Un champ de recherche pour retrouver rapidement un document.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Parcours LMD</h3>
+            <p>Vue claire du parcours Licence 1 à Master 2 et des filières disponibles.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+            <h3>Accès encadré</h3>
+            <p>La publication des ressources est réservée aux délégués de section.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-circle-info"></i></div>
+            <h3>Informations académiques</h3>
+            <p>Communications et informations importantes au même endroit.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="fas fa-mobile-screen"></i></div>
+            <h3>Android &amp; Web</h3>
+            <p>Application Android et version Web installable sur iPhone/iPad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== APERÇU APPLICATION ==================== -->
+    <section id="application" class="section-tint">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">L'application</span>
+          <h2>Trois écrans, toute votre vie étudiante</h2>
+          <p>Retrouver un document, suivre son semestre, consulter ses résultats — sans se perdre.</p>
+        </header>
+
+        <div class="preview-grid">
+          <article class="preview-card reveal">
+            <div class="mini-phone">
+              <div class="mini-screen">
+                <div class="row-line"><span class="dot dot--navy"></span><span class="line"
+                    style="max-width:70%"></span></div>
+                <div class="row-line"><span class="dot dot--orange"></span><span class="line"
+                    style="max-width:90%"></span></div>
+                <div class="row-line"><span class="dot dot--green"></span><span class="line"
+                    style="max-width:55%"></span></div>
+              </div>
+            </div>
+            <h3>Recherche</h3>
+            <p>Un mot-clé suffit pour retrouver un cours, un TD ou un sujet.</p>
+          </article>
+
+          <article class="preview-card reveal">
+            <div class="mini-phone">
+              <div class="mini-screen">
+                <div class="row-line"><span class="dot dot--orange"></span><span class="line"
+                    style="max-width:60%"></span></div>
+                <div class="row-line"><span class="dot dot--navy"></span><span class="line"
+                    style="max-width:85%"></span></div>
+                <div class="row-line"><span class="dot dot--green"></span><span class="line"
+                    style="max-width:40%"></span></div>
+              </div>
+            </div>
+            <h3>Suivi par semestre</h3>
+            <p>Chaque niveau se déplie en Semestre 1 et Semestre 2.</p>
+          </article>
+
+          <article class="preview-card reveal">
+            <div class="mini-phone">
+              <div class="mini-screen">
+                <div class="row-line"><span class="dot dot--green"></span><span class="line"
+                    style="max-width:95%"></span></div>
+                <div class="row-line"><span class="dot dot--orange"></span><span class="line"
+                    style="max-width:65%"></span></div>
+                <div class="row-line"><span class="dot dot--navy"></span><span class="line"
+                    style="max-width:75%"></span></div>
+              </div>
+            </div>
+            <h3>Espace délégué</h3>
+            <p>Chaque délégué publie les ressources de sa section.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PARCOURS LMD ==================== -->
+    <section id="parcours">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Parcours LMD</span>
+          <h2>De la Licence 1 au Master 2</h2>
+          <p>Un parcours progressif, avec un choix de filière à partir de la L3.</p>
+        </header>
+
+        <div class="timeline">
+          <div class="tl-track" aria-hidden="true"></div>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot">L1</div>
+            <div class="tl-body">
+              <h3>Licence 1 Tronc commun</h3>
+              <p>Semestres 1 et 2. Socle commun avant le choix de filière.</p>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot">L2</div>
+            <div class="tl-body">
+              <h3>Licence 2 Tronc commun</h3>
+              <p>Semestres 1 et 2. Poursuite du socle disciplinaire.</p>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot tl-dot--orange">L3</div>
+            <div class="tl-body">
+              <h3>Licence 3 Choix de filière</h3>
+              <p>À partir de la L3, chaque semestre se rattache à une filière :</p>
+              <div class="tl-options">
+                <span>Histoire</span><span>Géographie</span><span>Histoire-Géographie</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot tl-dot--orange">M1</div>
+            <div class="tl-body">
+              <h3>Master 1 Spécialisation</h3>
+              <div class="tl-options">
+                <span>Population &amp; Développement Territorial</span>
+                <span>Valorisation des Milieux Naturels</span>
+                <span>Enseignement Histoire-Géographie</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot tl-dot--orange">M2</div>
+            <div class="tl-body">
+              <h3>Master 2 Approfondissement</h3>
+              <p>Poursuite de la spécialisation choisie en M1, avec mémoire de fin de cycle.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== RESSOURCES ==================== -->
+    <section id="ressources" class="section-tint">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Ressources</span>
+          <h2>Un contenu organisé pour chaque semestre</h2>
+        </header>
+
+        <div class="triple-card-row">
+          <article class="triple-card triple-card--navy reveal">
+            <span class="triple-card-label"><i class="fas fa-book"></i> Semestre 1</span>
+            <strong>Cours &amp; TD</strong>
+            <p>Supports de cours et travaux dirigés classés par matière.</p>
+          </article>
+          <article class="triple-card triple-card--green reveal">
+            <span class="triple-card-label"><i class="fas fa-book-open"></i> Semestre 2</span>
+            <strong>Cours &amp; TD</strong>
+            <p>Contenu propre au second semestre, même organisation.</p>
+          </article>
+          <article class="triple-card triple-card--orange reveal">
+            <span class="triple-card-label"><i class="fas fa-pen-to-square"></i> Examens</span>
+            <strong>Sujets &amp; résultats</strong>
+            <p>Sessions normales et de rattrapage, archivées par année.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TÉLÉCHARGER ==================== -->
+    <section id="telecharger">
+      <div class="wrap">
+        <div class="download reveal">
+          <header class="download-header">
+            <span class="eyebrow eyebrow--light"><i class="fas fa-download"></i> Installation</span>
+            <h2 class="download-title">Installez UJLoG Étudiants</h2>
+            <p class="download-lead">Choisissez la méthode adaptée à votre appareil.</p>
+          </header>
+
+          <div class="tab-bar" role="tablist">
+            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="android">
+              <i class="fab fa-android"></i> Android
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="ios">
+              <i class="fab fa-apple"></i> iPhone / iPad
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="web">
+              <i class="fas fa-globe"></i> Web
+            </button>
+          </div>
+
+          <div class="tab-contents">
+            <div class="tab-content active" id="tab-android" role="tabpanel">
+              <h3>Installation sur Android</h3>
+              <p>Téléchargez le fichier APK et installez l'application directement, sans passer par le Play Store.</p>
+              <ol class="steps">
+                <li><b>1</b> Cliquez sur « Télécharger l'APK ».</li>
+                <li><b>2</b> Autorisez l'installation depuis une source inconnue si demandé.</li>
+                <li><b>3</b> Ouvrez le fichier téléchargé pour installer l'application.</li>
+              </ol>
+              <a id="btn-android" href="#" class="btn btn-orange" download>
+                <i class="fab fa-android"></i> Télécharger l'APK
+              </a>
+              <div class="qr-block">
+                <p>Ou scannez ce QR code :</p>
+                <img id="qr-apk" src="" alt="QR Code de téléchargement APK" width="140" height="140" loading="lazy">
+              </div>
+            </div>
+
+            <div class="tab-content" id="tab-ios" role="tabpanel">
+              <h3>Installation sur iPhone / iPad</h3>
+              <p>UJLoG Étudiants s'installe comme application Web (PWA) depuis Safari.</p>
+              <ol class="steps">
+                <li><b>1</b> Ouvrez la version Web dans Safari.</li>
+                <li><b>2</b> Appuyez sur l'icône de partage <i class="fas fa-arrow-up-from-bracket"></i>.</li>
+                <li><b>3</b> Choisissez « Sur l'écran d'accueil ».</li>
+              </ol>
+              <a id="btn-ios" href="#" class="btn btn-outline-light">
+                <i class="fab fa-apple"></i> Ouvrir la version Web
+              </a>
+            </div>
+
+            <div class="tab-content" id="tab-web" role="tabpanel">
+              <h3>Utilisation depuis un navigateur</h3>
+              <p>Accédez à la plateforme depuis n'importe quel navigateur, sur ordinateur ou mobile.</p>
+              <a id="btn-webapp" href="#" class="btn btn-outline-light">
+                <i class="fas fa-globe"></i> Ouvrir la Web App
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AVIS ==================== -->
+    <section id="avis" class="section-tint">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow"><i class="fas fa-star"></i> Avis &amp; suggestions</span>
+          <h2>Partagez votre expérience</h2>
+          <p>Votre retour aide à améliorer la plateforme pour tous les étudiants.</p>
+        </header>
+
+        <form class="avis-form reveal" id="avis-form" novalidate>
+          <h3>Laisser un avis</h3>
+          <div class="field">
+            <label for="avis-nom">Votre nom</label>
+            <input type="text" id="avis-nom" placeholder="Votre nom" maxlength="60" required>
+          </div>
+          <div class="field">
+            <label for="avis-note">Note</label>
+            <select id="avis-note">
+              <option value="5">⭐ 5- Excellent</option>
+              <option value="4">⭐ 4- Très bien</option>
+              <option value="3">⭐ 3- Bien</option>
+              <option value="2">⭐ 2- Moyen</option>
+              <option value="1">⭐ 1- Insuffisant</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="avis-message">Votre message</label>
+            <textarea id="avis-message" rows="3" placeholder="Votre avis, suggestion ou témoignage..." maxlength="500"
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-orange btn-block">
+            <i class="fas fa-paper-plane"></i> Envoyer mon avis
+          </button>
+          <p id="avis-feedback" class="form-note" role="status" aria-live="polite"></p>
+
+        </form>
+
+        <div class="avis-list">
+          <div class="avis-list-header">
+            <h3>Ce que les étudiants disent</h3>
+            <button id="btn-all-avis" class="btn btn-navy btn-sm" type="button">
+              <i class="fas fa-list"></i> Voir tous les avis
+            </button>
+          </div>
+          <div id="avis-container" class="avis-container">
+            <p class="avis-empty">Chargement…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Une question, un signalement ?</h2>
+        </header>
+
+        <div class="contact-grid">
+          <aside class="contact-info-card reveal">
+            <h3><i class="fas fa-comments"></i> Écrivez-nous</h3>
+            <p>Pour un problème d'accès, une correction de document ou une suggestion, contactez l'équipe.</p>
+            <a href="#" id="contact-whatsapp" class="contact-channel">
+              <span class="ci"><i class="fab fa-whatsapp"></i></span> WhatsApp-réponse rapide
+            </a>
+            <a href="#" id="contact-email" class="contact-channel">
+              <span class="ci"><i class="fas fa-envelope"></i></span> Email
+            </a>
+          </aside>
+
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="field">
+              <label for="f-nom">Nom complet</label>
+              <input id="f-nom" type="text" required placeholder="Votre nom et prénom" maxlength="80">
+            </div>
+            <div class="field">
+              <label for="f-email">Adresse email</label>
+              <input id="f-email" type="email" required placeholder="vous@exemple.com" maxlength="120">
+            </div>
+            <div class="field">
+              <label for="f-section">Section concernée</label>
+              <select id="f-section">
+                <option>L1</option>
+                <option>L2</option>
+                <option>L3-Histoire</option>
+                <option>L3-Géographie</option>
+                <option>L3-Histoire-Géographie</option>
+                <option>M1 / M2-Population &amp; Développement Territorial</option>
+                <option>M1 / M2-Valorisation des Milieux Naturels</option>
+                <option>M1 / M2-Enseignement Histoire-Géographie</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" required placeholder="Décrivez votre demande" maxlength="800"></textarea>
+            </div>
+            <button type="submit" class="btn btn-navy btn-block">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CRÉATEUR ==================== -->
+    <section id="creator" class="creator" aria-label="Créateur du projet">
+      <div class="wrap">
+        <p><i class="fas fa-code" aria-hidden="true"></i>
+          Créé par <strong>Dossa Bosou Arnaud</strong>
+          <span aria-hidden="true">·</span>
+          Étudiant au Département de Géographie-UJLoG Daloa
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo-ujlog.png" alt="" class="logo-img logo-ujlog-img logo-img--sm">
+          <strong>UJLoG Étudiants</strong>
+        </div>
+        <p class="footer-desc">Plateforme étudiante dédiée au Département de Géographie de l'UJLoG, Daloa.</p>
+      </div>
+
+      <nav aria-label="Navigation de pied de page">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#parcours">Parcours LMD</a></li>
+          <li><a href="#avis">Avis</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Téléchargement">
+        <h4>Application</h4>
+        <ul>
+          <li><a href="#telecharger">Android</a></li>
+          <li><a href="#telecharger">iPhone / iPad</a></li>
+          <li><a id="footer-webapp" href="#">Version Web</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Assistance">
+        <h4>Assistance</h4>
+        <ul>
+          <li><a href="#contact">Formulaire de contact</a></li>
+          <li><a id="footer-whatsapp" href="#">Signaler un problème</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom wrap">
+      <span>© <span id="year"></span> UJLoG Étudiants - Département de Géographie v1.0</span>
+      <span>Site indépendant, non affilié administrativement à l'université.</span>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALE TOUS LES AVIS ==================== -->
+  <div id="modal-avis" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-avis-title" hidden>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fermer" type="button">&times;</button>
+      <h2 id="modal-avis-title">Tous les avis</h2>
+
+      <!-- Statistiques (moyenne + distribution) -->
+      <div id="avis-stats" class="avis-stats" aria-live="polite"></div>
+
+      <div class="avis-filters">
+        <label>Filtrer :
+          <select id="avis-filter">
+            <option value="all">Toutes les notes</option>
+            <option value="5">5 étoiles</option>
+            <option value="4">4 étoiles</option>
+            <option value="3">3 étoiles</option>
+            <option value="2">2 étoiles</option>
+            <option value="1">1 étoile</option>
+          </select>
+        </label>
+        <label>Trier :
+          <select id="avis-sort">
+            <option value="recent">Plus récents</option>
+            <option value="ancien">Plus anciens</option>
+            <option value="note_desc">Meilleures notes</option>
+            <option value="note_asc">Notes les plus basses</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="modal-avis-container" class="avis-container"></div>
+    </div>
+  </div>
+
+  <!-- ==================== WHATSAPP FLOTTANT ==================== -->
+  <a href="#" id="wa-float" class="wa-float" aria-label="Contacter sur WhatsApp" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- ==================== CONFIGURATION + INITIALISATION SUPABASE ==================== -->
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      if (typeof CONFIG === 'undefined' || !CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON_KEY) {
+        window.SUPA = null;
+        console.error('[UJLoG] config.js manquant ou incomplet — les avis ne pourront pas être chargés.');
+        return;
+      }
+      try {
+        window.SUPA = supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
+        console.info('[UJLoG] Client Supabase initialisé.');
+      } catch (err) {
+        console.error('[UJLoG] Erreur d\'initialisation Supabase :', err);
+        window.SUPA = null;
+      }
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

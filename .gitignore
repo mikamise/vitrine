@@ -1,0 +1,16 @@
+# Configuration sensible (clés API)
+config.js
+
+# Système
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dépendances
+node_modules/

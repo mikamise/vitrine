@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /avis/{avisId} {
+
+      // Lecture publique uniquement pour les avis publiés
+      allow read: if resource.data.statut == "publie";
+
+      // Création contrôlée côté serveur
+      allow create: if
+        request.resource.data.nom is string &&
+        request.resource.data.nom.size() > 0 &&
+        request.resource.data.nom.size() <= 60 &&
+
+        request.resource.data.note is number &&
+        request.resource.data.note >= 1 &&
+        request.resource.data.note <= 5 &&
+
+        request.resource.data.message is string &&
+        request.resource.data.message.size() > 0 &&
+        request.resource.data.message.size() <= 500 &&
+
+        request.resource.data.statut == "publie";
+
+      // Aucune modification ni suppression depuis le client
+      allow update, delete: if false;
+    }
+
+    // Tout le reste : interdit
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
